@@ -51,7 +51,6 @@ namespace TDD_Katas_project.StringCalculator
         [TestCase("0,3", 3)]
         [TestCase("0,3,2", 5)]
         [TestCase("0,3,3", 6)]
-        [TestCase("0,3,2", 5)]
         [Test]
         public void AddReturnSumWhenSuppliedMultipleNumbersInString(string numbers, int expectedResult)
         {
