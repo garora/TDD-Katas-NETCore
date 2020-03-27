@@ -1,3 +1,4 @@
+## This repository is archived. Refer to [TDD-Katas](https://github.com/garora/TDD-Katas)
 ### Description
 Simply defines the Test Driven Development Katas. In this, lets try to create most famous katas to understand what are exactly Katas. These Katas can also be used for practicising your C# skills for Unit testing.
 ### How to contribute:
