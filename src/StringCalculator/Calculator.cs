@@ -26,24 +26,17 @@ namespace TDD_Katas_project.StringCalculator
             }
 
             return ContainsAny(numbers, delimiter)
-                       ? newnumbers.Split(delimiter.ToCharArray()).Sum(n => ParseToInt(n))
+                       ? newnumbers.Split(delimiter.ToCharArray()).Sum(ParseToInt)
                        : ParseToInt(newnumbers);
 
         }
 
-        private static bool HasSpecificDelimiter(string numbers)
-        {
-            return numbers.StartsWith("//");
-        }
+        private static bool HasSpecificDelimiter(string numbers) => numbers.StartsWith("//");
 
-        private static string GetPossibleDelimiter(string numbers)
-        {
-            return ",\n";
-        }
-        private static string GetSpecificDelimiter(string numbers)
-        {
-            return numbers.Substring(2, numbers.IndexOf("\n", StringComparison.Ordinal) - 2);
-        }
+        private static string GetPossibleDelimiter(string numbers) => ",\n";
+
+        private static string GetSpecificDelimiter(string numbers) => numbers.Substring(2, numbers.IndexOf("\n", StringComparison.Ordinal) - 2);
+
         private static string GetSpecificNumbers(string numbers)
         {
             return numbers.Substring(numbers.IndexOf("\n", StringComparison.Ordinal) + 1,
@@ -59,16 +52,10 @@ namespace TDD_Katas_project.StringCalculator
             return result;
         }
 
-        private static bool IsGreaterThanThousand(int nn)
-        {
-            return nn > 1000;
-        }
+        private static bool IsGreaterThanThousand(int nn) => nn > 1000;
 
 
-        private static bool ContainsAny(string input, string getPossibleDelimiters)
-        {
-            return getPossibleDelimiters.ToCharArray().Any(input.Contains);
-        }
+        private static bool ContainsAny(string input, string getPossibleDelimiters) => getPossibleDelimiters.ToCharArray().Any(input.Contains);
 
         private static void ValidateNumbersAsPerRule(int number)
         {

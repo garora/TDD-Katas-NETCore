@@ -9,15 +9,11 @@ namespace TDD_Katas_project.TheWordWrapKata
     public class WordWrapTest
     {
         [Test]
-        public void CanWrapSingleLine()
-        {
-            Assert.That("Let's\nGo", Is.EqualTo(WordWrap.Wrap("Let's  Go", 5)));
-        }
+        public void CanWrapSingleLine() => Assert.That("Let's\nGo", Is.EqualTo(WordWrap.Wrap("Let's  Go", 5)));
+
         [Test]
-        public void CanTestForNullWord()
-        {
-            Assert.That("", Is.EqualTo(WordWrap.Wrap(null, 5)));
-        }
+        public void CanTestForNullWord() => Assert.That("", Is.EqualTo(WordWrap.Wrap(null, 5)));
+
         [Test]
         public void CanTestForNullOrWhiteSpacesWord()
         {

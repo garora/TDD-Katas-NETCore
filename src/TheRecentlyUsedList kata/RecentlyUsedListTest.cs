@@ -165,10 +165,7 @@ namespace TDD_Katas_project.TheRecentlyUsedList_kata
         #endregion
 
         #region Private Methods
-        private List<string> ToList(params string[] items)
-        {
-            return items.ToList();
-        }
+        private List<string> ToList(params string[] items) => items.ToList();
 
         #endregion
 

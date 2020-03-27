@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Gaurav Aroraa
 // Licensed under the MIT License. See License.txt in the project root for license information.
 using System;
-using System.Globalization;
 
 namespace TDD_Katas_project.TheWordWrapKata
 {
@@ -65,26 +64,14 @@ namespace TDD_Katas_project.TheWordWrapKata
             return newWrappedWord;
         }
 
-        private static string RemoveWhiteSpacesFromWrappedWord(string wrappedword, int outCounter, int spaceCounter)
-        {
-            return wrappedword.Remove(outCounter + 1, spaceCounter);
-        }
+        private static string RemoveWhiteSpacesFromWrappedWord(string wrappedword, int outCounter, int spaceCounter) => wrappedword.Remove(outCounter + 1, spaceCounter);
 
-        private static bool IsContainNewLine(string word)
-        {
-            return word == "\n";
-        }
+        private static bool IsContainNewLine(string word) => word == "\n";
 
-        private static bool IsContainNullEmptyOrWhiteSpaces(string word)
-        {
-            return (string.IsNullOrEmpty(word)) || (string.IsNullOrWhiteSpace(word));
-        }
+        private static bool IsContainNullEmptyOrWhiteSpaces(string word) => (string.IsNullOrEmpty(word)) || (string.IsNullOrWhiteSpace(word));
 
-        private static bool IsWhiteSpaceOrNewLine(char wrd)
-        {
-            return char.IsWhiteSpace(wrd) && (wrd == '\n');
-        }
-        
+        private static bool IsWhiteSpaceOrNewLine(char wrd) => char.IsWhiteSpace(wrd) && (wrd == '\n');
+
         #endregion
     }
 }

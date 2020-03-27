@@ -1,17 +1,14 @@
 ﻿// Copyright (c) Gaurav Aroraa
 // Licensed under the MIT License. See License.txt in the project root for license information.
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TDD_Katas_project.LCDDigits
 {
     class LCDDigits
     {
         private static readonly int DIGIT_HEIGHT_DIMENSION = 1 ;
-        private static readonly string[,] lcdDigitsMap = {
+        private static readonly string[,] LcdDigitsMap = {
             {"._.",
              "|.|",
              "|_|" },
@@ -45,17 +42,17 @@ namespace TDD_Katas_project.LCDDigits
         };
               
 
-        internal static string getDigits(int number)
+        internal static string GetDigits(int number)
         {
             var output = new StringBuilder();
-            char[] numberArray = convertIntegerToArray(number);
+            char[] numberArray = ConvertIntegerToArray(number);
             
-            for (int digitHeight = 0; digitHeight < lcdDigitsMap.GetLength(DIGIT_HEIGHT_DIMENSION); digitHeight++)
+            for (int digitHeight = 0; digitHeight < LcdDigitsMap.GetLength(DIGIT_HEIGHT_DIMENSION); digitHeight++)
             {
                 for (int numberIndex = 0; numberIndex < numberArray.Length; numberIndex++)
                 {
                     output.Append(
-                        GetDigitLine(convertCharArrayToInteger(numberArray, numberIndex),
+                        GetDigitLine(ConvertCharArrayToInteger(numberArray, numberIndex),
                         digitHeight));
                 }
                 
@@ -65,17 +62,17 @@ namespace TDD_Katas_project.LCDDigits
             return output.ToString();
         }
 
-        private static int convertCharArrayToInteger(char[] numberArray, int numberIndex)
+        private static int ConvertCharArrayToInteger(char[] numberArray, int numberIndex)
         {
             return (int)Char.GetNumericValue(numberArray[numberIndex]);
         }
 
         private static string GetDigitLine(int number, int digitHeight)
         {
-            return lcdDigitsMap[number, digitHeight];
+            return LcdDigitsMap[number, digitHeight];
         }
 
-        private static char[] convertIntegerToArray(int number)
+        private static char[] ConvertIntegerToArray(int number)
         {
             return number.ToString().ToCharArray();
         }

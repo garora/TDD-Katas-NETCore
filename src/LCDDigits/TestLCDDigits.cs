@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Gaurav Aroraa
 // Licensed under the MIT License. See License.txt in the project root for license information.
 using NUnit.Framework;
-using System;
 
 
 /*
@@ -36,7 +35,7 @@ namespace TDD_Katas_project.LCDDigits
                             "|.|" + "\r\n" +
                             "|_|" + "\r\n";
 
-            Assert.That(LCDDigits.getDigits(0), Is.EqualTo(expect));
+            Assert.That(LCDDigits.GetDigits(0), Is.EqualTo(expect));
         }
 
         [Test]
@@ -46,7 +45,7 @@ namespace TDD_Katas_project.LCDDigits
                             "..|" + "\r\n" +
                             "..|" + "\r\n";
 
-            Assert.That(LCDDigits.getDigits(1), Is.EqualTo(expect));
+            Assert.That(LCDDigits.GetDigits(1), Is.EqualTo(expect));
         }
 
         [Test]
@@ -56,7 +55,7 @@ namespace TDD_Katas_project.LCDDigits
                             "..|" + "|.|" + "\r\n" +
                             "..|" + "|_|" + "\r\n";
 
-            Assert.That(LCDDigits.getDigits(10), Is.EqualTo(expect));
+            Assert.That(LCDDigits.GetDigits(10), Is.EqualTo(expect));
         }
 
         [Test]
@@ -66,7 +65,7 @@ namespace TDD_Katas_project.LCDDigits
                             "..|" + "|.|" + "|.|" + "\r\n" +
                             "..|" + "|_|" + "|_|" + "\r\n";
 
-            Assert.That(LCDDigits.getDigits(100), Is.EqualTo(expect));
+            Assert.That(LCDDigits.GetDigits(100), Is.EqualTo(expect));
         }
     }
 }

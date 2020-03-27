@@ -7,14 +7,9 @@ namespace TDD_Katas_project.OddEvenKata
     public class OddEven
     {
         #region Public Methods
-        public static string PrintOddEven(int startNumber, int lastNumber)
-        {
-            return GetOddEvenWithinRange(startNumber, lastNumber);
-        }
-        public static string PrintSingleOddEven(int number)
-        {
-            return CheckSingleNumberOddEvenPrimeResult(number);
-        }
+        public static string PrintOddEven(int startNumber, int lastNumber) => GetOddEvenWithinRange(startNumber, lastNumber);
+        public static string PrintSingleOddEven(int number) => CheckSingleNumberOddEvenPrimeResult(number);
+
         #endregion
 
         #region MyRePrivate Methods
@@ -51,14 +46,9 @@ namespace TDD_Katas_project.OddEvenKata
             return result.Trim();
         }
 
-        private static bool IsEvenNumber(int number)
-        {
-            return number >= 2 && number % 2 == 0;
-        }
-        private static bool IsOddNumber(int number)
-        {
-            return (number % 2 != 0);
-        }
+        private static bool IsEvenNumber(int number) => number >= 2 && number % 2 == 0;
+        private static bool IsOddNumber(int number) => (number % 2 != 0);
+
         private static bool IsPrimeNumber(int number)
         {
             if (number < 2) return false;

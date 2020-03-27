@@ -19,14 +19,11 @@ namespace TDD_Katas_project.TheNaturalStringSortingKata
 
         #region Public Methods
 
-        public List<string> SortString(string[] strItems)
-        {
-            return SortString(strItems, SortOrder.Ascending);
-        }
+        public List<string> SortString(string[] strItems) => SortString(strItems, SortOrder.Ascending);
 
         public List<string> SortString(string[] strItems, SortOrder order)
         {
-            Func<string, object> convert = str =>
+            Func<string, object> Convert = str =>
                 {
                     try
                     {
@@ -38,7 +35,7 @@ namespace TDD_Katas_project.TheNaturalStringSortingKata
                     }
                 };
 
-            return GetSortedList(strItems, order, convert);
+            return GetSortedList(strItems, order, Convert);
 
         }
         #endregion
