@@ -10,8 +10,7 @@ namespace TDD_Katas_project.Common.Utility
         bool _disposed;
         public string ItemValue { get; set; }
 
-        public override string ToString()
-        { return ItemValue; }
+        public override string ToString() => ItemValue;
 
         public override bool Equals(object compareObject)
         {
@@ -21,15 +20,9 @@ namespace TDD_Katas_project.Common.Utility
             return compareObject != null && ItemValue.Equals(compareObject.ToString());
         }
 
-        public override int GetHashCode()
-        {
-            return ItemValue.GetHashCode();
-        }
+        public override int GetHashCode() => ItemValue.GetHashCode();
 
-        ~SimpleNaturalStringOrder()
-        {
-            Dispose(false);
-        }
+        ~SimpleNaturalStringOrder() => Dispose(false);
 
         #region IDisposable Members
 
