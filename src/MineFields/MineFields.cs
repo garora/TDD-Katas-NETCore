@@ -1,112 +1,106 @@
 ﻿// Copyright (c) Gaurav Aroraa
 // Licensed under the MIT License. See License.txt in the project root for license information.
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework.Constraints;
 
 namespace TDD_Katas_project.MineFields
 {
-    static class Constants
+    internal static class Constants
     {
         public const int Mine = -1;
     }
 
-    class MineFields
+    internal class MineFields
     {
-        int[,] fields;
+        int[,] _fields;
 
-        public void create(int width, int height)
+        public void Create(int width, int height)
         {
-            fields = new int[width, height];
+            _fields = new int[width, height];
         }
 
-        public int getHint(int xPos, int yPos)
+        public int GetHint(int xPos, int yPos)
         {
-            return fields[xPos, yPos];
+            return _fields[xPos, yPos];
         }
 
-        internal void mine(int xPos, int yPos)
+        internal void Mine(int xPos, int yPos)
         {
-            layMine(xPos, yPos);
-            updateHint(xPos, yPos);
+            LayMine(xPos, yPos);
+            UpdateHint(xPos, yPos);
         }
 
-        private void layMine(int xPosOfMine, int yPosOfMine)
+        private void LayMine(int xPosOfMine, int yPosOfMine)
         {
-            fields[xPosOfMine, yPosOfMine] = Constants.Mine;
+            _fields[xPosOfMine, yPosOfMine] = Constants.Mine;
         }
 
-        private void updateHint(int xPosOfMine, int yPosOfMine)
+        private void UpdateHint(int xPosOfMine, int yPosOfMine)
         {
-            updateHintAtRight(xPosOfMine, yPosOfMine);
-            updateHintAtLeft(xPosOfMine, yPosOfMine);
-            updateHintAtBottom(xPosOfMine, yPosOfMine);
-            updateHintAtTop(xPosOfMine, yPosOfMine);
-            updateHintAtBottomRightCorner(xPosOfMine, yPosOfMine);
-            updateHintAtTopLeftCorner(xPosOfMine, yPosOfMine);
-            updateHintAtTopRightCorner(xPosOfMine, yPosOfMine);
-            updateHintAtBottomLeftCorner(xPosOfMine, yPosOfMine);
+            UpdateHintAtRight(xPosOfMine, yPosOfMine);
+            UpdateHintAtLeft(xPosOfMine, yPosOfMine);
+            UpdateHintAtBottom(xPosOfMine, yPosOfMine);
+            UpdateHintAtTop(xPosOfMine, yPosOfMine);
+            UpdateHintAtBottomRightCorner(xPosOfMine, yPosOfMine);
+            UpdateHintAtTopLeftCorner(xPosOfMine, yPosOfMine);
+            UpdateHintAtTopRightCorner(xPosOfMine, yPosOfMine);
+            UpdateHintAtBottomLeftCorner(xPosOfMine, yPosOfMine);
         }
 
-        private void updateHintAtBottomLeftCorner(int xPosOfMine, int yPosOfMine)
+        private void UpdateHintAtBottomLeftCorner(int xPosOfMine, int yPosOfMine)
         {
-            if (checkMinWidth(xPosOfMine - 1) && checkMaxHeight(yPosOfMine + 1) && isNotMine(xPosOfMine - 1, yPosOfMine + 1))
-                fields[xPosOfMine - 1, yPosOfMine + 1] += 1;
+            if (checkMinWidth(xPosOfMine - 1) && CheckMaxHeight(yPosOfMine + 1) && IsNotMine(xPosOfMine - 1, yPosOfMine + 1))
+                _fields[xPosOfMine - 1, yPosOfMine + 1] += 1;
         }
 
-        private void updateHintAtTopRightCorner(int xPosOfMine, int yPosOfMine)
+        private void UpdateHintAtTopRightCorner(int xPosOfMine, int yPosOfMine)
         {
-            if (checkMaxWidth(xPosOfMine + 1) && checkMinHeight(yPosOfMine - 1) && isNotMine(xPosOfMine + 1, yPosOfMine - 1))
-                fields[xPosOfMine + 1, yPosOfMine - 1] += 1;
+            if (CheckMaxWidth(xPosOfMine + 1) && CheckMinHeight(yPosOfMine - 1) && IsNotMine(xPosOfMine + 1, yPosOfMine - 1))
+                _fields[xPosOfMine + 1, yPosOfMine - 1] += 1;
         }
 
-        private void updateHintAtTopLeftCorner(int xPosOfMine, int yPosOfMine)
+        private void UpdateHintAtTopLeftCorner(int xPosOfMine, int yPosOfMine)
         {
-            if (checkMinWidth(xPosOfMine - 1) && checkMinHeight(yPosOfMine - 1) && isNotMine(xPosOfMine - 1, yPosOfMine - 1))
-                fields[xPosOfMine - 1, yPosOfMine - 1] += 1;
+            if (checkMinWidth(xPosOfMine - 1) && CheckMinHeight(yPosOfMine - 1) && IsNotMine(xPosOfMine - 1, yPosOfMine - 1))
+                _fields[xPosOfMine - 1, yPosOfMine - 1] += 1;
         }
 
-        private void updateHintAtBottomRightCorner(int xPosOfMine, int yPosOfMine)
+        private void UpdateHintAtBottomRightCorner(int xPosOfMine, int yPosOfMine)
         {
-            if (checkMaxWidth(xPosOfMine + 1) && checkMaxHeight(yPosOfMine + 1) && isNotMine(xPosOfMine + 1, yPosOfMine + 1))
-                fields[xPosOfMine + 1, yPosOfMine + 1] += 1;
+            if (CheckMaxWidth(xPosOfMine + 1) && CheckMaxHeight(yPosOfMine + 1) && IsNotMine(xPosOfMine + 1, yPosOfMine + 1))
+                _fields[xPosOfMine + 1, yPosOfMine + 1] += 1;
         }
 
-        private void updateHintAtTop(int xPosOfMine, int yPosOfMine)
+        private void UpdateHintAtTop(int xPosOfMine, int yPosOfMine)
         {
-            if (checkMinHeight(yPosOfMine - 1) && isNotMine(xPosOfMine, yPosOfMine - 1))
-                fields[xPosOfMine, yPosOfMine - 1] += 1;
+            if (CheckMinHeight(yPosOfMine - 1) && IsNotMine(xPosOfMine, yPosOfMine - 1))
+                _fields[xPosOfMine, yPosOfMine - 1] += 1;
         }
 
-        private void updateHintAtBottom(int xPosOfMine, int yPosOfMine)
+        private void UpdateHintAtBottom(int xPosOfMine, int yPosOfMine)
         {
-            if (checkMaxHeight(yPosOfMine + 1) && isNotMine(xPosOfMine, yPosOfMine + 1))
-                fields[xPosOfMine, yPosOfMine + 1] += 1;
+            if (CheckMaxHeight(yPosOfMine + 1) && IsNotMine(xPosOfMine, yPosOfMine + 1))
+                _fields[xPosOfMine, yPosOfMine + 1] += 1;
         }
 
-        private void updateHintAtLeft(int xPosOfMine, int yPosOfMine)
+        private void UpdateHintAtLeft(int xPosOfMine, int yPosOfMine)
         {
-            if (checkMinWidth(xPosOfMine - 1) && isNotMine(xPosOfMine - 1, yPosOfMine))
-                fields[xPosOfMine - 1, yPosOfMine] += 1;
+            if (checkMinWidth(xPosOfMine - 1) && IsNotMine(xPosOfMine - 1, yPosOfMine))
+                _fields[xPosOfMine - 1, yPosOfMine] += 1;
         }
 
-        private void updateHintAtRight(int xPosOfMine, int yPosOfMine)
+        private void UpdateHintAtRight(int xPosOfMine, int yPosOfMine)
         {
-            if (checkMaxWidth(xPosOfMine + 1) && isNotMine(xPosOfMine + 1, yPosOfMine))
-                fields[xPosOfMine + 1, yPosOfMine] += 1;
+            if (CheckMaxWidth(xPosOfMine + 1) && IsNotMine(xPosOfMine + 1, yPosOfMine))
+                _fields[xPosOfMine + 1, yPosOfMine] += 1;
         }
 
-        private bool isNotMine(int xPos, int yPos)
+        private bool IsNotMine(int xPos, int yPos)
         {
-            return fields[xPos, yPos] != Constants.Mine;
+            return _fields[xPos, yPos] != Constants.Mine;
         }
 
-        private bool checkMaxWidth(int xPos)
+        private bool CheckMaxWidth(int xPos)
         {
-            return fields.GetLength(0) > xPos;
+            return _fields.GetLength(0) > xPos;
         }
 
         private bool checkMinWidth(int xPos)
@@ -114,12 +108,12 @@ namespace TDD_Katas_project.MineFields
             return xPos >= 0;
         }
 
-        private bool checkMaxHeight(int yPos)
+        private bool CheckMaxHeight(int yPos)
         {
-            return fields.GetLength(1) > yPos;
+            return _fields.GetLength(1) > yPos;
         }
 
-        private bool checkMinHeight(int yPos)
+        private bool CheckMinHeight(int yPos)
         {
             return yPos >= 0;
         }

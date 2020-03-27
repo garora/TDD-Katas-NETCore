@@ -50,10 +50,7 @@ namespace TDD_Katas_project.TheNaturalStringSortingKata
         #endregion
 
         #region Private Methods
-        private static List<string> ToList(params string[] items)
-        {
-            return items.ToList();
-        }
+        private static List<string> ToList(params string[] items) => items.ToList();
 
         #endregion
     }

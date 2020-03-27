@@ -35,30 +35,14 @@ namespace TDD_Katas_project.TheCalcStatsKata
 
         #region Private Methods
 
-        private static string GetMinimumValue(IEnumerable<int> numbers)
-        {
-            return numbers == null
-                       ? null
-                       : numbers.Min().ToString(CultureInfo.InvariantCulture);
-        }
-        private static string GetMaximumValue(IEnumerable<int> numbers)
-        {
-            return numbers == null
-                       ? null
-                       : numbers.Max().ToString(CultureInfo.InvariantCulture);
-        }
-        private static string GetElementCount(IEnumerable<int> numbers)
-        {
-            return numbers == null
-                       ? null
-                       : numbers.Count().ToString(CultureInfo.InvariantCulture);
-        }
-        private static string GetSeriesAverage(IEnumerable<int> numbers)
-        {
-            return numbers == null
-                       ? null
-                       : numbers.Average().ToString(CultureInfo.InvariantCulture);
-        }
+        private static string GetMinimumValue(IEnumerable<int> numbers) => numbers?.Min().ToString(CultureInfo.InvariantCulture);
+
+        private static string GetMaximumValue(IEnumerable<int> numbers) => numbers?.Max().ToString(CultureInfo.InvariantCulture);
+
+        private static string GetElementCount(IEnumerable<int> numbers) => numbers?.Count().ToString(CultureInfo.InvariantCulture);
+
+        private static string GetSeriesAverage(IEnumerable<int> numbers) => numbers?.Average().ToString(CultureInfo.InvariantCulture);
+
         #endregion
     }
 }

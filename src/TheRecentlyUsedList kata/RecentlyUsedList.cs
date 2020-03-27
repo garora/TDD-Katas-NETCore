@@ -98,41 +98,21 @@ namespace TDD_Katas_project.TheRecentlyUsedList_kata
 
         #region Helper Methods /members
 
-        public int Count
-        {
+        public int Count => _listofuniquestrings != null
+            ? _listofuniquestrings.Count
+            : 0;
 
-            get
-            {
-                return _listofuniquestrings != null
-                           ? _listofuniquestrings.Count
-                           : 0;
+        public int Size => _listSize;
 
-            }
-        }
+        public List<string> ToList() => _listofuniquestrings;
 
-        public int Size
-        {
-
-            get { return _listSize; }
-        }
-
-        public List<string> ToList()
-        {
-            return _listofuniquestrings;
-        }
         #endregion
 
         #region Implementation of IEnumerable
 
-        public IEnumerator<string> GetEnumerator()
-        {
-            return _listofuniquestrings.GetEnumerator();
-        }
+        public IEnumerator<string> GetEnumerator() => _listofuniquestrings.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         #endregion
 

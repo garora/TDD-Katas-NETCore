@@ -14,15 +14,8 @@ namespace TDD_Katas_project.StringSum
             return Convert.ToString(Add(realNum1, realNum2));
         }
 
-        private static string GetZeroWhenNullOrEmpty(string num1)
-        {
-            return string.IsNullOrEmpty(num1) ? "0" : num1;
-        }
+        private static string GetZeroWhenNullOrEmpty(string num1) => string.IsNullOrEmpty(num1) ? "0" : num1;
 
-        private static int Add(string realNum1, string realNum2)
-        {
-            return int.Parse(realNum1) + int.Parse(realNum2);
-        }
-
+        private static int Add(string realNum1, string realNum2) => int.Parse(realNum1) + int.Parse(realNum2);
     }
 }

@@ -29,16 +29,16 @@ namespace TDD_Katas_project.MineFields
 {
     [TestFixture]
     [Category("MineFields")]
-    class TestMineFields
+    internal class TestMineFields
     {
         [Test]
         public void build_field_size_of_one_by_one_and_zero_mine()
         {
             MineFields fields = new MineFields();
 
-            fields.create(1, 1);
+            fields.Create(1, 1);
 
-            Assert.That(fields.getHint(0, 0), Is.EqualTo(0));
+            Assert.That(fields.GetHint(0, 0), Is.EqualTo(0));
         }
 
         [Test]
@@ -46,10 +46,10 @@ namespace TDD_Katas_project.MineFields
         {
             MineFields fields = new MineFields();
 
-            fields.create(1, 1);
-            fields.mine(0, 0);
+            fields.Create(1, 1);
+            fields.Mine(0, 0);
 
-            Assert.That(fields.getHint(0, 0), Is.EqualTo(-1));
+            Assert.That(fields.GetHint(0, 0), Is.EqualTo(-1));
         }
 
         [Test]
@@ -61,10 +61,10 @@ namespace TDD_Katas_project.MineFields
         {
             MineFields fields = new MineFields();
 
-            fields.create(2, 2);
-            fields.mine(0, 0);
+            fields.Create(2, 2);
+            fields.Mine(0, 0);
 
-            Assert.That(fields.getHint(xPos, yPos), Is.EqualTo(expect));
+            Assert.That(fields.GetHint(xPos, yPos), Is.EqualTo(expect));
         }
 
         [Test]
@@ -76,10 +76,10 @@ namespace TDD_Katas_project.MineFields
         {
             MineFields fields = new MineFields();
 
-            fields.create(2, 2);
-            fields.mine(1, 1);
+            fields.Create(2, 2);
+            fields.Mine(1, 1);
 
-            Assert.That(fields.getHint(xPos, yPos), Is.EqualTo(expect));
+            Assert.That(fields.GetHint(xPos, yPos), Is.EqualTo(expect));
         }
 
         [Test]
@@ -91,10 +91,10 @@ namespace TDD_Katas_project.MineFields
         {
             MineFields fields = new MineFields();
 
-            fields.create(2, 2);
-            fields.mine(0, 1);
+            fields.Create(2, 2);
+            fields.Mine(0, 1);
 
-            Assert.That(fields.getHint(xPos, yPos), Is.EqualTo(expect));
+            Assert.That(fields.GetHint(xPos, yPos), Is.EqualTo(expect));
         }
 
         [Test]
@@ -106,10 +106,10 @@ namespace TDD_Katas_project.MineFields
         {
             MineFields fields = new MineFields();
 
-            fields.create(2, 2);
-            fields.mine(1, 0);
+            fields.Create(2, 2);
+            fields.Mine(1, 0);
 
-            Assert.That(fields.getHint(xPos, yPos), Is.EqualTo(expect));
+            Assert.That(fields.GetHint(xPos, yPos), Is.EqualTo(expect));
         }
 
         [Test]
@@ -121,11 +121,11 @@ namespace TDD_Katas_project.MineFields
         {
             MineFields fields = new MineFields();
 
-            fields.create(2, 2);
-            fields.mine(0, 0);
-            fields.mine(1, 0);
+            fields.Create(2, 2);
+            fields.Mine(0, 0);
+            fields.Mine(1, 0);
 
-            Assert.That(fields.getHint(xPos, yPos), Is.EqualTo(expect));
+            Assert.That(fields.GetHint(xPos, yPos), Is.EqualTo(expect));
         }
 
         [Test]
@@ -137,12 +137,12 @@ namespace TDD_Katas_project.MineFields
         {
             MineFields fields = new MineFields();
 
-            fields.create(2, 2);
-            fields.mine(0, 0);
-            fields.mine(1, 0);
-            fields.mine(0, 1);
+            fields.Create(2, 2);
+            fields.Mine(0, 0);
+            fields.Mine(1, 0);
+            fields.Mine(0, 1);
 
-            Assert.That(fields.getHint(xPos, yPos), Is.EqualTo(expect));
+            Assert.That(fields.GetHint(xPos, yPos), Is.EqualTo(expect));
         }
 
         [Test]
@@ -154,13 +154,13 @@ namespace TDD_Katas_project.MineFields
         {
             MineFields fields = new MineFields();
 
-            fields.create(2, 2);
-            fields.mine(0, 0);
-            fields.mine(1, 0);
-            fields.mine(0, 1);
-            fields.mine(1, 1);
+            fields.Create(2, 2);
+            fields.Mine(0, 0);
+            fields.Mine(1, 0);
+            fields.Mine(0, 1);
+            fields.Mine(1, 1);
 
-            Assert.That(fields.getHint(xPos, yPos), Is.EqualTo(expect));
+            Assert.That(fields.GetHint(xPos, yPos), Is.EqualTo(expect));
         }
 
         [Test]
@@ -171,11 +171,11 @@ namespace TDD_Katas_project.MineFields
         {
             MineFields fields = new MineFields();
 
-            fields.create(3, 3);
-            fields.mine(0, 0);
-            fields.mine(1, 0);
+            fields.Create(3, 3);
+            fields.Mine(0, 0);
+            fields.Mine(1, 0);
 
-            Assert.That(fields.getHint(xPos, yPos), Is.EqualTo(expect));
+            Assert.That(fields.GetHint(xPos, yPos), Is.EqualTo(expect));
         }
 
         [Test]
@@ -192,12 +192,12 @@ namespace TDD_Katas_project.MineFields
         {
             MineFields fields = new MineFields();
 
-            fields.create(3, 3);
-            fields.mine(0, 0);
-            fields.mine(1, 0);
-            fields.mine(1, 2);
+            fields.Create(3, 3);
+            fields.Mine(0, 0);
+            fields.Mine(1, 0);
+            fields.Mine(1, 2);
 
-            Assert.That(fields.getHint(xPos, yPos), Is.EqualTo(expect));
+            Assert.That(fields.GetHint(xPos, yPos), Is.EqualTo(expect));
         }
     }
 }
